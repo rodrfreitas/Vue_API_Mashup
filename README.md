@@ -1,6 +1,14 @@
-# Foundation Sixty6 - FIP
+# VUE AND AJAX ASSIGNMENT (API MASHUP)
+# Dungeons and Dragons Top 10 Strongest Boss Monsters
 
-Foundation Sixty6 Website
+This project showcases a curated list of the top 10 strongest boss monsters in Dungeons and Dragons. We utilized a combination of APIs to gather information about these formidable creatures. Our approach involved:
+
+- **API Mashup**: We developed a custom API mashup using Lumen framework to fetch data from a local MySQL database containing a comprehensive list of monsters.
+  
+- **Remote API Integration**: Additionally, we incorporated the API from [5e-bits](https://5e-bits.github.io/) to enrich our dataset with detailed information about the monsters.
+
+- **Frontend Development with Vue.js**: To present and manipulate the data dynamically, we employed Vue.js. This enabled us to fetch JSON data and seamlessly update the DOM, ensuring a reactive and engaging user experience.
+
 
 ## Installation
 
@@ -24,7 +32,7 @@ TODO: Write history
 
 ## Credits
 
-Callidora Idsardi - Jong Woog Yun - Kwency Dahilan - Rodrigo Rocha de Freitas  - Tiago da Siva Witt
+Rodrigo Rocha de Freitas  - Tiago da Siva Witt
 
 ## License
 
