@@ -12,7 +12,7 @@
   /* Styles for the modal */
 
 .modal {
-    display: none;
+    //display: none;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -21,6 +21,7 @@
     height: 100%;
     overflow: auto;
     background-color: rgba(222, 222, 222, 0.9);
+    padding-top: 20px;
 }
 
 .lightbox-content {
@@ -39,4 +40,8 @@
     font-size: 52px;
     font-weight: bold;
     cursor: pointer;
+}
+
+.monster-info {
+    padding-bottom: 50px;
 }
