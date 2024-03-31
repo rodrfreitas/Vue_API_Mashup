@@ -33,15 +33,23 @@
 }
 
 .close {
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 15px;
     color: #ff0000;
     font-size: 52px;
     font-weight: bold;
     cursor: pointer;
+    transition: all .2s ease-in-out;
+    &:hover {
+        rotate: 180deg;
+    }
 }
 
 .monster-info {
     padding-bottom: 50px;
+}
+
+.modal-open {
+    overflow: hidden;
 }

@@ -16,12 +16,8 @@
     <script defer src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- ++++++++++++++ GREENSOCK ++++++++++++++++-->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <!-- ++++++++++++++ ScrollReveal JS ++++++++++++++++-->
-    <script defer src="js/scrollreveal.min.js"></script>
     <!-- ++++++++++++++ MAIN JS ++++++++++++++++-->
-    <!-- <script defer src="js/scrollrevcalls.js"></script> -->
-    <script defer src="js/get-monsters.js"></script>
-    <!-- <script defer src="js/main.js"></script> -->
+    <script defer src="js/main.js"></script>
 </head>
 <body>
     <div id="app">
@@ -48,7 +44,7 @@
         <!-- ++++++++++++++ MONSTERS ++++++++++++++++-->
         <section id="monsters-section" class="grid-con">
             <div id="monsters-content" class="col-span-full l-col-start-2 l-col-end-12">
-
+                <div v-if="error">{{error}}</div>
                 <div v-for="monster in monsterData" :key="monster.id" class="monster-card" @click="openModal(monster)">
                     <div class="monster-photo">
                         <img :src="'./images/thumbnail/' + monster.thumbnail" :alt="monster.name" class="open-sshot-modal">
@@ -65,7 +61,7 @@
         
         <!-- ++++++++++++++ lightbox / Modal ++++++++++++++++-->
         <div id="sshotModal" class="modal" v-if="showModal">
-            <div v-if="error">{{error}}</div>
+            
             <span class="close" @click="closeModal">&times;</span>
             <section id="modal-sshot" class="grid-con lightbox-content">
                 <div id="modal-content" class="col-span-full l-col-start-2 l-col-end-12">
@@ -80,6 +76,7 @@
                         <h3>{{hp}} HP</h3>
                         <p><span>Challenge Rating:</span> {{challengeRating}}</p>
                         <h3>Attributes</h3>
+                        <div v-if="error">{{error}}</div>
                         <p><span>STR:</span> {{str}}</p>
                         <p><span>DEX:</span> {{dex}}</p>
                         <p><span>CON:</span> {{con}}</p>
@@ -99,6 +96,25 @@
                 <img src="images/loader.gif" alt="loader">
             </div>
         </div>
+
+        <!-- ++++++++++++++ FOOTER ++++++++++++++++-->
+        <footer id="footer-section" class="grid-con">
+            <h2 class="hidden">Footer</h2>
+            <div id="footer-content" class="col-span-full">
+                <div id="footer-logo">
+                    <?php 
+                        echo date("F j, Y, g:i a"); 
+                    ?>
+                    <img src="images/logo.png" alt="logo">
+                </div>
+                <nav>
+                    <a href="index.html#hero-main">Go to Top</a>
+                </nav>
+                <div id="copyright">
+                    <p>2024 © Built and designed by Rodrigo Freitas</p>
+                </div>
+            </div>
+        </footer>
         
     </div>
 </body>

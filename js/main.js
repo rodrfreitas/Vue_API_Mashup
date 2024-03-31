@@ -34,7 +34,9 @@ const dndTopTenMonsters = Vue.createApp({
             })
             .catch(error => {
                 console.error(error);
-                // Handle error
+                this.error = "No monster found - Error: " + error;
+                this.isLoading = false;
+
             });
         },
         openModal(monsterProxy) {
@@ -46,7 +48,12 @@ const dndTopTenMonsters = Vue.createApp({
             const monsterFullImg = monster.full_img;
             // console.log("Monster object:", monster); // Debug
             // console.log("Monster name:", monsterName); // Debug
+            //Show modal
             this.showModal = true;
+            //
+            //Disable scroll on the main page when modal is open
+            document.body.classList.add('modal-open');
+            //
             const machineName = monster.name.toLowerCase().split(' ').join('-');
             fetch(`https://www.dnd5eapi.co/api/monsters/${machineName}`)
             .then(res => res.json())
@@ -66,10 +73,14 @@ const dndTopTenMonsters = Vue.createApp({
                 this.wis = data.wisdom;
                 this.cha = data.charisma;
                 this.size = data.size;
+
+                // Animation to slide in the monster image from the left
+                gsap.from('.monster-full-photo img', { x: '-100%', duration: 0.5, ease: 'power2.out' });
             })
             .catch(error => {
                 console.error(error);
-                // Handle error
+                this.error = "No monster info found - Error: " + error;
+                this.isLoading = false;
             });
         },
         resetParameters() {
@@ -88,8 +99,14 @@ const dndTopTenMonsters = Vue.createApp({
             this.size = "";
         },
         closeModal() {
+            //Close modal
             this.showModal = false;
+            //Enable scrolling on the main page again
+            document.body.classList.remove('modal-open');
         }
+    },
+    mounted() {
+        console.log("app mounted");
     }
 });
 
